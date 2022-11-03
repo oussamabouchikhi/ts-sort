@@ -7,26 +7,21 @@ class Node {
 
 export class LinkedList extends Sorter {
   head: Node | null = null;
-  // constructor(public data: number[]) {}
 
   add(value: number): void {
     const node = new Node(value);
 
-    // If list is empty, new element will be the head
     if (!this.head) {
       this.head = node;
       return;
     }
 
-    // tail: last element of the list
     let tail = this.head;
 
-    // loop throught elements of the list until we find the tail
     while (tail.next) {
       tail = tail.next;
     }
 
-    // Append new node to the tail
     tail.next = node;
   }
 
@@ -39,10 +34,8 @@ export class LinkedList extends Sorter {
     let node: Node | null = this.head;
     while (node) {
       if (counter === index) {
-        // we found the node
         return node;
       }
-      // continue iterating through the list
       counter++;
       node = node.next;
     }
@@ -51,7 +44,6 @@ export class LinkedList extends Sorter {
   }
 
   swap(leftIndex: number, rightIndex: number): void {
-    /* instead of swapping nodes, we're gonna swap only their values */
     let leftNode = this.at(leftIndex);
     let rightNode = this.at(rightIndex);
 
